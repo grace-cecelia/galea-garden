@@ -24,6 +24,7 @@ body {
     background-color: #ede1d4;
     padding: 20px;
     line-height: 1.6;
+    height: 100%;
 }
 
 .container {
@@ -384,7 +385,7 @@ body {
     min-height: 100vh;
 }
 
-
+/* scrollytelly for types of headaches */
 /* Left side (visual stage) */
 .visual-column {
     position: fixed;
@@ -483,22 +484,137 @@ iframe {
     text-align: center;
 }
 
-.full-garden-container {
-    width: 100%;
+/* container is being weirddddd
+.garden-entrance-container {
+    width: 100vw;
+    height: 1000vh;
+    margin: 0;
+    padding: 0;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    gap: 5%;
     position: relative;
     overflow: visible;
-    margin-top: -20%;
-    z-index: 2;
+    z-index: 1;
+    background-image: url(garden-bed-images/garden-background.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: top center;
 }
 
-.full-garden-container img {
-    width: 100%;
-    height: auto;
-    object-fit: contain;
-    flex-shrink: 0;
+.rose-plaque-transform {
+    position: absolute;
+    top: 25%;
+    left: 30%;
+    width: 5%;
+    z-index: 2;
 }
+*/
+
+/* garden attempt 1 with the images separated 
+Garden bed image layout
+.garden-beds-container {
+    display: flex;
+    max-width: 2000px;
+    margin: 0 auto;
+    margin-top: -30%; /* amt of overlap with entrance arch
+    gap: 30%; /* space in between garden beds 
+    height: 80vh;
+    overflow: hidden;
+    position: relative;
+    z-index: 2; 
+}
+
+.garden-beds-left {
+    flex: 1;
+    background: transparent;
+    overflow: visible;
+    position: relative;
+}
+
+.garden-beds-right {
+    flex: 1;
+    background: transparent;
+    overflow: visible;
+}
+
+.garden-bed-image-container {
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+    position: relative;
+}
+
+.garden-bed-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: none;
+    position: absolute;
+    overflow: visible;
+}
+
+.garden-bed-rose img {
+    transform: translateX(-50%);
+    scale: calc(.4);
+}
+
+.garden-bed-5 img {
+    width: 50%;
+    scale: calc(.5);
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1) translateX(-200%);
+}
+
+/* white outline not working yet 
+.garden-bed-rose .roses {
+    filter: drop-shadow(0 0 0px 5% #ffffff);
+}
+
+hover state to indicate plaque is clickable - not working yet 
+.plaque:hover {
+    transform: scale(1.1);
+} 
+*/
+
+/* another attempt at placing images on garden arch */
+/* Main container */
+.garden-entrance-container {
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    overflow: visible;
+}
+
+/* Background image */
+.garden-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('garden-bed-images/garden-background.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center top;
+}
+
+/* All positioned images */
+.garden-entrance-container img {
+    position: absolute;
+    z-index: 2;
+    height: auto;
+    max-width: 100%;
+}
+
+.rose-plaque {
+    top: 40%;
+    left: 20%;
+    width: 40%;
+}
+
+
+
+
