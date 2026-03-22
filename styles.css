@@ -1,7 +1,4 @@
 /* page bg */
-.body {
-    background-color: #dfd0b0;
-}
 
 /* title page container */
 .title-page-container {
@@ -15,3 +12,493 @@
 }
 
 
+/* vines image stack styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #ede1d4;
+    padding: 20px;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background: transparent;
+    padding: 20px;
+}
+
+.image-stack-container {
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+    overflow: hidden;
+    background: transparent;
+    margin-bottom: -25%;
+}
+
+.image-stack {
+    position: relative;
+    width: 100%;
+    padding-top: 75%;
+    background: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.image-stack-container .image-item {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: right;
+}
+
+.image-item.active {
+    opacity: 1;
+}
+
+.image-stack-container .image-item img {
+    max-width: 95%;
+    max-height: 95%;
+    object-fit: contain;
+    display: block;
+    padding-right: 5%;
+    background: transparent;
+}
+
+.stack-indicator {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    font-size: 14px;
+    z-index: 10;
+    display: none;
+}
+
+
+/* Remove image from stack by positioning it absolutely */
+.image-stack .stacked-image {
+    position: relative;
+    z-index: 1;
+}
+
+.image-stack .always-visible {
+    position: absolute !important;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    transform: none !important;
+    transition: none !important;
+}
+
+.meds-container {
+    width: 100%;
+    position: relative;
+}
+
+/* Vines growing Responsive adjustments */
+@media (max-width: 768px) {
+    .image-stack-container {
+        margin: 0 10px;
+        max-width: none;
+    }
+
+    .image-stack {
+        padding-top: 133.33%;
+        /* 3:4 aspect ratio for mobile */
+    }
+
+    .stack-indicator,
+    .scroll-hint {
+        font-size: 12px;
+        padding: 6px 12px;
+        bottom: 10px;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+        margin-bottom: 20px;
+    }
+}
+
+
+.image-stack {
+    padding-top: 133.33%;
+    /* Maintain aspect ratio */
+}
+
+.stack-indicator,
+.scroll-hint {
+    font-size: 11px;
+    padding: 5px 10px;
+    bottom: 8px;
+}
+
+@media (min-width: 2000px) {
+    .image-stack-container {
+        max-width: 2000px;
+    }
+
+    .image-stack {
+        padding-top: 56.25%;
+        /* 16:9 aspect ratio */
+    }
+}
+
+
+/* Loading state */
+.image-item.loading {
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+    0% {
+        background-position: 200% 0;
+    }
+
+    100% {
+        background-position: -200% 0;
+    }
+}
+
+/* positioning for vines and person with headache */
+.meds-container {
+    width: 100%;
+    position: relative;
+    overflow: visible;
+    z-index: 1;
+}
+
+.headache-person {
+    position: relative;
+    width: 50%;
+    margin-bottom: -40%;
+}
+
+.helmet-container {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 5%;
+    position: relative;
+    overflow: visible;
+    margin-top: -35%;
+    z-index: 2;
+}
+
+.helmet-container img {
+    width: 50%;
+    height: auto;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+
+.helmet-container p {
+    flex: 1;
+    font-size: 100%;
+    line-height: 1.6;
+    align-content: baseline;
+    padding-right: 5%;
+    padding-top: 10%;
+}
+
+.galea-botany-container {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 5%;
+    position: relative;
+    overflow: visible;
+    margin-top: 0;
+    z-index: 2;
+    margin-left: 5%;
+    margin-right: 10%;
+    margin-bottom: 10%;
+}
+
+.galea-botany-container img {
+    width: 20%;
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+.galea-botany-container p {
+    flex: 1;
+    font-size: 100%;
+    line-height: 1.6;
+    align-content: baseline;
+    padding-right: 30%;
+}
+
+.galea-anatomy-container {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 5%;
+    position: relative;
+    overflow: visible;
+    margin-top: 0;
+    z-index: 2;
+    margin-left: 12%;
+    margin-right: 23%;
+    margin-bottom: 10%;
+}
+
+.galea-anatomy-container img {
+    width: 20%;
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+.galea-anatomy-container p {
+    flex: 1;
+    font-size: 100%;
+    line-height: 1.6;
+    align-content: baseline;
+    padding-right: 30%;
+}
+
+.galea-medicine-container {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 5%;
+    position: relative;
+    overflow: visible;
+    margin-top: 0;
+    z-index: 2;
+    margin-left: 24%;
+    margin-right: 36%;
+    margin-bottom: 10%;
+}
+
+.galea-medicine-container img {
+    width: 17.5%;
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+.galea-medicine-container p {
+    flex: 1;
+    font-size: 100%;
+    line-height: 1.6;
+    align-content: baseline;
+    padding-right: 30%;
+}
+
+.paper-note-container {
+    width: 100%;
+    height: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 5%;
+    position: relative;
+    overflow: visible;
+    margin-top: 0;
+    z-index: 2;
+    background-image: url('images/note-paper.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin-bottom: 20%;
+}
+
+.paper-note-text {
+    padding-left: 12%;
+    padding-right: 12%;
+    padding-top: 15%;
+}
+
+.disclaimer-container {
+    width: 100%;
+    display: flex;
+    columns: 2;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 5%;
+    position: relative;
+    overflow: visible;
+    margin-top: 0;
+    z-index: 2;
+}
+
+.disclaimer-container img {
+    width: 70%;
+    margin: -2% -4% -2% -2%;
+}
+
+.headache-categories {
+    width: 100%;
+    display: flex;
+    columns: 2;
+    flex-direction: row;
+    justify-content: center;
+    gap: 20%;
+    position: relative;
+    overflow: visible;
+    margin-top: 0;
+    z-index: 2;
+    text-align: center;
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
+/* person with different types of headaches */
+.headache-types-container {
+    display: flex;
+    min-height: 100vh;
+}
+
+
+/* Left side (visual stage) */
+.visual-column {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 90%;
+    height: 50%;
+    background: transparent;
+    padding-left: -20%;
+    padding-right: -10%;
+    z-index: 1;
+}
+
+
+/* Right side (story) */
+.text-column {
+    margin-left: 60%;
+    width: 30%;
+    background: transparent;
+    z-index: 2;
+}
+
+.visual-stack {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+
+/* Each visual sits on top of each other */
+.visual {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition: opacity 0.8s ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-left: -10%;
+}
+
+
+/* The active one shows */
+.visual.active {
+    opacity: 1;
+}
+
+
+.visual img {
+    width: 130%;
+    object-fit: contain;
+}
+
+.story-step {
+    min-height: 90vh;
+    padding-top: 25%;
+}
+
+
+.story-step p {
+    font-size: 90%;
+    margin-bottom: 10%;
+    background-color: white;
+    opacity: 0.9;
+    padding: 20%;
+    border-radius: 25px;
+    border: 1px solid grey;
+}
+
+
+.spacer {
+    height: 20vh;
+}
+
+.story-step-hide {
+    font-size: 18px;
+    margin-bottom: 10%;
+    padding: 150%;
+}
+
+/* iframe embed for headache types */
+iframe {
+    border: none;
+    width: 100%;
+    height: 100vh;
+}
+
+
+.iframe-container {
+    overflow: hidden;
+}
+
+.h1 {
+    font-family: serif;
+    font-size: 10vw;
+    text-align: center;
+}
+
+.full-garden-container {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 5%;
+    position: relative;
+    overflow: visible;
+    margin-top: -20%;
+    z-index: 2;
+}
+
+.full-garden-container img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    flex-shrink: 0;
+}

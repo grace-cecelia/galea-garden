@@ -14,12 +14,251 @@
             alt="statue of a person holding their head with decorative text reading 'Galea Garden'"></img>
     </div>
 
+
+
     <div class="meds-container">
-        <img class="person-with-headache" src="images/headache-placeholder.jpeg"
-            alt="a person holding their head in pain"></img>
+        <div class="headache-person">
+            <img class="title-image" src="images/headache-placeholder.jpeg"
+                alt="a person holding their head in pain"></img>
+        </div>
+        <div class="image-stack-container">
+            <div class="image-stack" id="imageStack">
+                <div class="image-item active">
+                    <img src="images/growing-vines-0.png" alt="Image 1">
+                </div>
+                <div class="image-item active">
+                    <img src="images/growing-vines-1.png" alt="Image 1">
+                </div>
+                <div class="image-item">
+                    <img src="images/growing-vines-2.png" alt="Image 2">
+                </div>
+                <div class="image-item">
+                    <img src="images/growing-vines-3.png" alt="Image 3">
+                </div>
+                <div class="image-item">
+                    <img src="images/growing-vines-4.png" alt="Image 4">
+                </div>
+                <div class="image-item">
+                    <img src="images/growing-vines-5.png" alt="Image 5">
+                </div>
+                <div class="image-item">
+                    <img src="images/growing-vines-6.png" alt="Image 6">
+                </div>
+                <div class="image-item">
+                    <img src="images/growing-vines-7.png" alt="Image 7">
+                </div>
+            </div>
+        </div>
     </div>
 
-    <script src="scripts/script.js"> </script>
-</body>
+    <div p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti
+        atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt
+        in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est
+        et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus
+        id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem
+        quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et
+        molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus
+        maiores alias consequatur aut perferendis doloribus asperiores repellat.</div>
+
+    <!--styling that i can't delete even tho it's in the css file fsr!-->
+    <title>Image Stack Scroll</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+
+        .image-stack-container {
+            max-width: 2000px;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            background: transparent;
+
+        }
+
+        .image-stack {
+            position: relative;
+            height: 100%;
+            width: 100%;
+        }
+
+        .image-stack-container .image-item {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+            display: flex;
+            align-items: center;
+            justify-content: right;
+            background: transparent;
+        }
+
+        .meds-container {
+            width: 100%;
+            position: relative;
+        }
+
+        .image-item.active {
+            opacity: 1;
+        }
+
+        .image-stack-container .image-item img {
+            max-width: 90%;
+            max-height: 90%;
+            object-fit: contain;
+        }
+
+        .stack-indicator {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            font-size: 14px;
+            z-index: 10;
+            display: none;
+        }
+
+
+
+        .no-transition-container img {
+            transition: none;
+            opacity: 1;
+        }
+
+        /* Remove image from stack by positioning it absolutely */
+        .image-stack .stacked-image {
+            position: relative;
+            z-index: 1;
+            /* Stack order */
+        }
+
+        .image-stack .always-visible {
+            position: absolute !important;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            /* Higher z-index to ensure visibility */
+            transform: none !important;
+            transition: none !important;
+        }
+    </style>
+    </head>
+
+    <body>
+        <div class="stack-indicator" id="indicator">1 / 6</div>
+        </div>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                const imageStack = document.getElementById('imageStack');
+                const imageItems = document.querySelectorAll('.image-item');
+                const indicator = document.getElementById('indicator');
+
+                let currentIndex = 0;
+                const totalImages = imageItems.length;
+
+                // Initialize first image
+                updateIndicator();
+
+                // Handle scroll events
+                let isScrolling = false;
+
+                imageStack.addEventListener('wheel', function (e) {
+                    e.preventDefault();
+
+                    if (isScrolling) return;
+                    isScrolling = true;
+
+                    const delta = e.deltaY;
+
+                    if (delta > 0) {
+                        // Scroll down - next image
+                        currentIndex = Math.min(currentIndex + 1, totalImages - 1);
+                    } else {
+                        // Scroll up - previous image
+                        currentIndex = Math.max(currentIndex - 1, 0);
+                    }
+
+                    updateStack();
+                    updateIndicator();
+
+                    // Reset scrolling flag after animation
+                    setTimeout(() => {
+                        isScrolling = false;
+                    }, 300);
+                });
+
+
+                function updateStack() {
+                    imageItems.forEach((item, index) => {
+                        if (index === currentIndex) {
+                            item.classList.add('active');
+                        } else {
+                            item.classList.remove('active');
+                        }
+                    });
+                }
+
+                function updateIndicator() {
+                    indicator.textContent = `${currentIndex + 1} / ${totalImages}`;
+                }
+
+                // Optional: Add keyboard navigation
+                document.addEventListener('keydown', function (e) {
+                    if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') {
+                        currentIndex = Math.max(currentIndex - 1, 0);
+                        updateStack();
+                        updateIndicator();
+                    } else if (e.key === 'ArrowDown' || e.key === 'ArrowRight') {
+                        currentIndex = Math.min(currentIndex + 1, totalImages - 1);
+                        updateStack();
+                        updateIndicator();
+                    }
+                });
+            });
+
+            // Reactivate page scroll when reaching end of gallery
+            function handleGalleryScroll() {
+                const gallery = document.querySelector('imageStack');
+                const scrollTop = gallery.scrollTop;
+                const scrollHeight = gallery.scrollHeight;
+                const clientHeight = gallery.clientHeight;
+
+                // Check if scrolled to bottom (within 10px tolerance)
+                if (scrollTop + clientHeight >= scrollHeight - 10) {
+                    // Allow page scrolling when at end of gallery
+                    document.body.style.overflow = 'auto';
+                } else {
+                    // Prevent page scrolling while in gallery
+                    document.body.style.overflow = 'hidden';
+                }
+            }
+
+            // Add event listener to gallery
+            const gallery = document.querySelector('#imageStack');
+            if (gallery) {
+                gallery.addEventListener('scroll', handleGalleryScroll);
+
+                // Initialize
+                handleGalleryScroll();
+            }
+        </script>
+
+
+        <script src="scripts/script.js"> </script>
+    </body>
 
 </html>
