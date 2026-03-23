@@ -193,3 +193,23 @@ document.addEventListener("DOMContentLoaded", () => {
     window.addEventListener("scroll", onScroll);
     onScroll(); // run once at the start
 });
+
+// Fade-in on scroll
+document.addEventListener('DOMContentLoaded', function() {
+    const fadeInElements = document.querySelectorAll('.fade-in');
+
+    function checkFadeIn() {
+        const triggerBottom = window.innerHeight * 0.8; // Trigger when element is 80% into the viewport
+
+        fadeInElements.forEach(element => {
+            const elementTop = element.getBoundingClientRect().top;
+
+            if (elementTop < triggerBottom) {
+                element.classList.add('visible');
+            }
+        });
+    }
+
+    window.addEventListener('scroll', checkFadeIn);
+    checkFadeIn(); // Check on load
+});

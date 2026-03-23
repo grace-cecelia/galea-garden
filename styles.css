@@ -638,6 +638,18 @@ hover state to indicate plaque is clickable - not working yet
     padding: 20px;
 }
 
+/* Fade-in animation */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
 @media (max-width: 768px) {
     #mobile-overlay {
         display: flex;
