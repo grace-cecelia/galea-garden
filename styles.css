@@ -615,3 +615,35 @@ hover state to indicate plaque is clickable - not working yet
     width: 40%;
 }
 
+#mobile-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(50, 50, 50, 0.6);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+}
+
+.overlay-message {
+    color: white;
+    font-size: 26px;
+    text-align: center;
+    font-family: sans-serif;
+    padding: 20px;
+}
+
+@media (max-width: 768px) {
+    #mobile-overlay {
+        display: flex;
+    }
+
+    body {
+        overflow: hidden;
+    }
+}
