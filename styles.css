@@ -590,30 +590,97 @@ hover state to indicate plaque is clickable - not working yet
 
 /* Background image */
 .garden-background {
-    position: absolute;
+    position: relative;
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
-    background-image: url('garden-bed-images/garden-background.png');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center top;
+    z-index: 1;
 }
 
 /* All positioned images */
 .garden-entrance-container img {
     position: absolute;
-    z-index: 2;
+    z-index: 1;
     height: auto;
     max-width: 100%;
 }
 
-.rose-plaque {
-    top: 40%;
+/* turning image into clickable button - assoc with flower bed 1 */
+.clickable-rose-plaque {
+    position: absolute;
+    top: 200%;
     left: 20%;
-    width: 40%;
+    width: 10%;
+    -webkit-filter: drop-shadow(1% 1% 0 rgb(255, 255, 255)) drop-shadow(-5px -5px 0 rgb(255, 255, 255));
+    filter: drop-shadow(1% 1% 0 rgb(255, 255, 255)) drop-shadow(-5px -5px 0 rgb(255, 255, 255));
+    outline: none;
+    border: none;
+    z-index: 2;
+    cursor: pointer;
 }
+
+.clickable-rose-plaque:hover {
+    cursor: pointer;
+}
+
+.garden-container button {
+    background: transparent;
+    border: none;
+    border: 0;
+}
+
+#rose-plaque-overlay {
+    position: fixed;
+    display: none;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    cursor: pointer;
+    background-image: url(garden-bed-images/rose-plaque-overlay.png);
+}
+
+#rose-plaque-text {
+    position: absolute;
+    top: 20%;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    text-align: center;
+    padding: 5%;
+    z-index: 2;
+    color: white;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+}
+
+.rose-plaque-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    cursor: pointer;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+}
+
+.rose-plaque-container img {
+    z-index: 1;
+    width: 60%;
+    text-align: center;
+}
+
+
+.close-overlay {
+    background-color: beige;
+}
+
+
 
 #mobile-overlay {
     position: fixed;
