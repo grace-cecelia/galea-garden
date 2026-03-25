@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galea Garden: Homepage</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="title-page-container">
+        <img class="title-image" src="images/title-page.png"
+            alt="statue of a person holding their head with decorative text reading 'Galea Garden'"></img>
+    </div>
+
+
+    <div class="meds-container">
+        <div class="headache-person">
+            <img id="person-with-headache-image" class="pi" src="images/Willow-bottle.png"
+                alt="a person holding their head in pain"></img>
+        </div>
+        <div class="image-stack-container">
+            <div class="image-stack" id="imageStack">
+                <div class="image-item active">
+                    <img src="images/growing-vines-0.png" alt="Growing Vines 1">
+                </div>
+                <div class="image-item">
+                    <img src="images/growing-vines-1.png" alt="Growing Vines 2">
+                </div>
+                <div class="image-item">
+                    <img src="images/growing-vines-2.png" alt="Growing Vines 3">
+                </div>
+                <div class="image-item">
+                    <img src="images/growing-vines-4.png" alt="Growing Vines 4">
+                </div>
+                <div class="image-item">
+                    <img src="images/growing-vines-5.png" alt="Growing Vines 5">
+                </div>
+                <div class="image-item">
+                    <img src="images/growing-vines-6.png" alt="Growing Vines 6">
+                </div>
+                <div class="image-item">
+                    <img src="images/growing-vines-7.png" alt="Growing Vines 7">
+                </div>
+            </div>
+            <div class="stack-indicator" id="indicator">1 / 8</div>
+        </div>
+    </div>
+
+    <div class="helmet-container fade-in">
+        <img src="images/helmet-resized.png" alt="Roman-style helmet" width="50%">
+        <p>Galea (ga-le-a) comes from a Latin word meaning “helmet.” It was brought into English as an anatomy term in
+            the 1800s, and today it has a few different meanings:
+        </p>
+    </div>
+
+
+    <div class="galea-botany-container fade-in">
+        <img src="images/galea-botany.png" alt="Galea in botany">
+        <p>In botany, the galea is the part of certain flowers that looks like a helmet.</p>
+    </div>
+
+    <div class="galea-anatomy-container fade-in">
+        <img src="images/galea-anatomy.png" alt="Galea in anatomy">
+        <p>In anatomy, the the galea aponeurotica is a layer of tissue covering the skull.</p>
+    </div>
+
+    <div class="galea-medicine-container fade-in">
+        <img src="images/galea-medicine.png" alt="Galea in medicine">
+        <p>In medicine, “galea” is a historical term for headaches that cover the entire head, like a helmet.</p>
+    </div>
+
+    <div class="paper-note-container fade-in">
+        <div class="paper-note-text">
+            <p>Keep scrolling to learn about headaches and explore the headache garden. Discover how headache remedies
+                from
+                non-Western cultures are rooted in plant medicine, and how this is still inspiring modern science today.
+            </p>
+            <div class="disclaimer-container">
+                <img src="images/heart-icon.png" alt="heart icon"></img>
+                <p>Note:
+                    This page explores use cases for herbal medicine, but it does not act as a guide or recommendation.
+                    It is
+                    important to speak to a medical professional before using any medical treatments, including herbal
+                    remedies.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="headaches-intro-container fade-in">
+        <p>Headaches are an incredibly common ailment that have been described in some of the earliest medical texts.
+            There are two main types of headaches:
+        </p>
+        <div class="headache-categories">
+            <p class="primary">Primary Headaches
+                <br></br>xx
+                <br></br>xx
+                <br></br>xx
+            </p>
+            <p class="secondary">Secondary Headaches
+                <br></br>xx
+                <br></br>xx
+                <br></br>xx
+            </p>
+        </div>
+        <p>In other words, primary headaches are the disease, not the symptom, and secondary headaches are the symptom,
+            not the disease. Both types can be painful and debilitating.
+        </p>
+        <p>Because the brain itself cannot feel pain, all headache pain comes from blood vessels in the skull, membranes
+            around the brain (meninges), or surrounding nerves.
+        </p>
+    </div>
+
+    <div class="spacer"></div>
+
+    <div>
+        <p>There are three types of primary headaches:</p>
+        </p>
+    </div>
+
+    <!--scrollbar still visible for me on firefox-->
+    <style>
+        ::-webkit-scrollbar {
+            height: 0px;
+            width: 0px;
+            scrollbar-width: none;
+        }
+    </style>
+
+    <div class="iframe-container" seamless="seamless" scrolling="no" frameborder="0">
+        <iframe src="pages/headache-types.html"></iframe>
+    </div>
+
+    <div class="spacer"></div>
+
+    <!--not working 
+    <div class="garden-entrance-container">
+        <img class="rose-plaque-transform" src="garden-bed-images/rose-plaque-small.png" alt="rose plaque" />
+    </div> -->
+
+    <!--rose plaque big version
+    <div id="rose-plaque-overlay">
+        <div class="rose-plaque-container">
+            <img src="garden-bed-images/rose-plaque-overlay.png" alt="rose plaque overlay" />
+            <p class="plaque-text">Rose<br></br>
+                Genus <i>Rosa,</i> Family Rosaceae<br></br>
+                In traditional Persian medicine, rose essential oil was applied to the forehead, temples, and scalp to
+                treat
+                head pain.
+            </p>
+            <button class="close-overlay" id="closeRoseOverlay">Close Plaque</button>
+        </div>
+    </div> -->
+
+    <div id="rose-plaque-overlay" onclick="off()">
+        <div id="rose-plaque-text">Rose<br></br>
+            Genus <i>Rosa,</i> Family Rosaceae<br></br>
+            In traditional Persian medicine, rose essential oil was applied to the forehead, temples, and scalp to
+            treat
+            head pain.</div>
+    </div>
+
+
+    <script>
+        function on() {
+            document.getElementById("rose-plaque-overlay").style.display = "block";
+        }
+
+        function off() {
+            document.getElementById("rose-plaque-overlay").style.display = "none";
+        }
+    </script>
+
+    <div id="mobile-overlay">
+        <div class="overlay-message">
+            Best viewed on desktop!
+        </div>
+    </div>
+
+    <!--garden image with clickable elements-->
+    <div class="garden-entrance-container">
+        <img class="garden-background" src="garden-bed-images/garden-background.png" />
+        <div class="clickable-rose-plaque">
+            <button onclick="on()" type="rose-plaque-button" >
+                <img src="garden-bed-images/rose-plaque-small.png" />
+            </button>
+        </div>
+    </div>
+
+
+
+    <div class="spacer"></div>
+    <div class="spacer"></div>
+    <div class="spacer"></div>
+    <div class="spacer"></div>
+    <div class="spacer"></div>
+    <div class="spacer"></div>
+    <div class="spacer"></div>
+    <div class="spacer"></div>
+
+    </div>
+
+
+    <script src="scripts/script-homepage-2.js"> </script>
+</body>
+
+<div id="mobile-overlay">
+    <div class="overlay-message">
+        Best viewed on desktop!
+    </div>
+</div>
+
+</html>
