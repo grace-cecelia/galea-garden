@@ -148,24 +148,7 @@
         </div>
     </div> -->
 
-    <div id="rose-plaque-overlay" onclick="off()">
-        <div id="rose-plaque-text">Rose<br></br>
-            Genus <i>Rosa,</i> Family Rosaceae<br></br>
-            In traditional Persian medicine, rose essential oil was applied to the forehead, temples, and scalp to
-            treat
-            head pain.</div>
-    </div>
 
-
-    <script>
-        function on() {
-            document.getElementById("rose-plaque-overlay").style.display = "block";
-        }
-
-        function off() {
-            document.getElementById("rose-plaque-overlay").style.display = "none";
-        }
-    </script>
 
     <div id="mobile-overlay">
         <div class="overlay-message">
@@ -175,24 +158,25 @@
 
     <!--garden image with clickable elements-->
     <div class="garden-entrance-container">
-        <img class="garden-background" src="garden-bed-images/garden-background.png" />
-        <div class="clickable-rose-plaque">
-            <button onclick="on()" type="rose-plaque-button" >
-                <img src="garden-bed-images/rose-plaque-small.png" />
+        <img class="garden-background" src="images/Full_Garden.png" />
+        <img src="garden-bed-images/rose-plaque-small.png" class="clickable-rose-plaque" alt="rose plaque"
+            id="rosePlaqueButton" />
+        <!-- <img src="arctic-willow-images/willow-statue.png" class="clickable-willow-statue" alt="willow statue"
+            id="willowButton" /> -->
+        <button class="willowButton" onclick="openLightbox()">
+            <!--replace image with one with smaller bg when winter uploads it-->
+            <img src="arctic-willow-images/willow-statue.png" alt="statue of bird with arctic willow branch">
+        </button>
+
+        <!-- Lightbox Overlay -->
+        <div id="willowLightbox" class="willow-lightbox-overlay">
+            <div class="willow-lightbox-content">
+                <iframe id="willow-lightbox-iframe" class="willow-lightbox-iframe" src=""></iframe>
+            </div>
+            <button class="back-to-garden-button" onclick="closeLightbox()">
+                <img src="plant-pages-images/back-to-garden.png" alt="back to garden">
             </button>
         </div>
-    </div>
-
-
-
-    <div class="spacer"></div>
-    <div class="spacer"></div>
-    <div class="spacer"></div>
-    <div class="spacer"></div>
-    <div class="spacer"></div>
-    <div class="spacer"></div>
-    <div class="spacer"></div>
-    <div class="spacer"></div>
 
     </div>
 

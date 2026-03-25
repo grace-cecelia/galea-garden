@@ -22,7 +22,6 @@
 body {
     font-family: Arial, sans-serif;
     background-color: #ede1d4;
-    padding: 20px;
     line-height: 1.6;
     height: 100%;
 }
@@ -608,20 +607,138 @@ hover state to indicate plaque is clickable - not working yet
 /* turning image into clickable button - assoc with flower bed 1 */
 .clickable-rose-plaque {
     position: absolute;
-    top: 200%;
-    left: 20%;
+    top: 193%;
+    left: 34%;
     width: 10%;
     -webkit-filter: drop-shadow(1% 1% 0 rgb(255, 255, 255)) drop-shadow(-5px -5px 0 rgb(255, 255, 255));
     filter: drop-shadow(1% 1% 0 rgb(255, 255, 255)) drop-shadow(-5px -5px 0 rgb(255, 255, 255));
     outline: none;
     border: none;
     z-index: 2;
-    cursor: pointer;
+    overflow: visible;
 }
 
 .clickable-rose-plaque:hover {
     cursor: pointer;
 }
+
+
+/* WillowButton styled as image */
+.willowButton {
+    position: absolute;
+    top: 125%;
+    left: 55%;
+    border: none;
+    background: none;
+    transition: transform 0.2s;
+    width: 60%;
+    height: auto;
+    -webkit-filter: drop-shadow(0 0 10px rgb(255, 255, 255)) drop-shadow(-10px 0 10px rgb(255, 255, 255));
+    filter: drop-shadow(10px 0 10px rgb(255, 255, 255)) drop-shadow(-10px 0 10px rgb(255, 255, 255));
+    z-index: 1;
+}
+
+.willowButton:hover {
+    cursor: pointer;
+}
+
+.willowButton img {
+    width: 90%;
+    height: auto;
+    display: block;
+}
+
+/* Lightbox styles */
+.willow-lightbox-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* DO NOT CHANGE */
+    background-color: rgba(95, 126, 85, 0.5);
+    z-index: 1000;
+    overflow: hidden;
+}
+
+.willow-lightbox-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    height: 70%;
+    /* adjust this for size of lightbox without affecting bg container */
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+.willow-lightbox-header {
+    background-color: #8B4513;
+    color: white;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* note to self restyle this as back to garden */
+.back-to-garden-button {
+    border: none;
+    cursor: pointer;
+    background-color: transparent;
+    position: absolute;
+    width: 40%;
+    padding-top: 95%;
+    padding-left: 50%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+}
+
+.back-to-garden-button:hover {
+    cursor: pointer;
+}
+
+.willow-lightbox-iframe {
+    width: 100%;
+    height: calc(100% - 50px);
+    border: none;
+}
+
+/* Scrollable content */
+.arctic-willow {
+    max-height: 80vh;
+    overflow-y: auto;
+    padding: 20px;
+    margin-top: 30px;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+}
+
+
+
+/*.clickable-willow-statue {
+    position: absolute;
+    top: 120%;
+    left: 20%;
+    width: 100%;
+    -webkit-filter: drop-shadow(0 0 10px rgb(255, 255, 255)) drop-shadow(-10px 0 10px rgb(255, 255, 255)); 
+    filter: drop-shadow(10px 0 10px rgb(255, 255, 255)) drop-shadow(-10px 0 10px rgb(255, 255, 255));
+    outline: none;
+    border: none;
+    z-index: 2;
+    overflow: visible;
+}
+
+.clickable-willow-statue:hover {
+    cursor: pointer; 
+} */
 
 .garden-container button {
     background: transparent;
@@ -629,6 +746,7 @@ hover state to indicate plaque is clickable - not working yet
     border: 0;
 }
 
+/* rose plaque lightbox styling */
 #rose-plaque-overlay {
     position: fixed;
     display: none;
@@ -669,6 +787,7 @@ hover state to indicate plaque is clickable - not working yet
     margin: auto;
 }
 
+/* this is for the plaque image */
 .rose-plaque-container img {
     z-index: 1;
     width: 60%;
@@ -725,4 +844,324 @@ hover state to indicate plaque is clickable - not working yet
     body {
         overflow: hidden;
     }
+}
+
+
+/* STYLING FOR WILLOW SCROLLYTELLY */
+
+.willow-body {
+    overflow-x: hidden;
+}
+
+.willow-title-container {
+    width: 100%;
+    display: flex;
+    position: relative;
+}
+
+
+.willow-title {
+    position: absolute;
+    top: 0%;
+    left: 50%;
+    text-align: center;
+}
+
+.willow-title-container {
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    overflow: hidden;
+}
+
+/* willow scrollytelly */
+
+/* Background image */
+.willow-decorative-border {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1;
+}
+
+.arctic-willow-hero {
+    width: 50%;
+    top: 25%;
+    left: 11%;
+}
+
+.willow-title {
+    position: relative;
+    top: 19%;
+    left: 39%;
+    text-align: center;
+    font-size: 250%;
+}
+
+.willow-intro-text {
+    position: absolute;
+    top: 32%;
+    left: 58%;
+    padding-right: 20%;
+}
+
+/* All positioned images */
+.willow-title-container img {
+    position: absolute;
+    z-index: 1;
+    height: auto;
+    max-width: 100%;
+}
+
+/* Map container freeze */
+.map-container {
+    position: relative;
+    width: 100%;
+    margin: 50px 0;
+    overflow: visible;
+    transition: all 0.3s ease;
+}
+
+.willow-maps-layout {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.willow-maps-text {
+    text-align: center;
+    width: 50%;
+    display: flex;
+    padding-right: 50%;
+    position: absolute;
+}
+
+.willow-maps {
+    padding-right: 5%;
+}
+
+.willow-maps img {
+    width: 100%;
+}
+
+.willow-maps p {
+    margin: 10px 0;
+}
+
+/* Scroll freezing effect */
+.map-container.scroll-freeze {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 999;
+    width: 90%;
+    height: 80vh;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    animation: fadeIn 0.5s ease;
+}
+
+.map-container.scroll-freeze .map-content {
+    background-color: rgba(255, 255, 255, 0.95);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .map-container {
+        height: 300px;
+        margin: 20px 0;
+    }
+
+    .map-container.scroll-freeze {
+        width: 95%;
+        height: 85vh;
+    }
+
+    .container {
+        padding: 10px;
+    }
+}
+
+/* Background elements to show scrolling effect */
+.background-element {
+    height: 200px;
+    background-color: #ddd;
+    margin: 20px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+}
+
+.person-container {
+    display: flex;
+    margin-top: 15%;
+    width: 100%;
+    margin-bottom: 10%;
+}
+
+.person-container .person-speaking {
+    width: 70%;
+    padding-left: 10%;
+    margin-top: 0;
+}
+
+.person-container .pronunciations-text {
+    padding-right: 10%;
+    padding-left: 5%;
+    padding-top: 5%;
+}
+
+
+/* willow bark prep */
+.willow-prep-container {
+    width: 100%;
+    display: flex;
+    columns: 2;
+    margin-top: 15%;
+    height: auto;
+}
+
+/* place styling for willow bark animation here 
+.willow-prep-container .left-visual-column {} */ 
+
+.willow-prep-container .right-words-column {
+    padding-right: 10%;
+    padding-left: 5%;
+    padding-top: 5%;
+}
+
+.willow-prep-container img {
+    width: 100%;
+}
+
+/* tea time */
+.tea-time-container {
+    width: 100%;
+    display: flex;
+    columns: 2;
+    margin-top: -20%;
+    height: auto;
+    margin-bottom: 20%;
+    overflow: visible;
+    column-gap: 5%;
+}
+
+.tea-time-container img {
+    width: 100%;
+    overflow: visible;
+    padding-left: 10%;
+}
+
+.tea-time-container .tea-time-text {
+    padding-top: 10%;
+    padding-right: 10%;
+}
+
+/* Left side (visual stage) */
+.visual-column {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 90%;
+    height: 50%;
+    background: transparent;
+    padding-left: -20%;
+    padding-right: -10%;
+    z-index: 1;
+}
+
+
+/* Right side (story) */
+.salicin-text-column {
+    margin-left: 60%;
+    width: 30%;
+    background: transparent;
+    z-index: 2;
+}
+
+.salicin-mug-container {
+    margin-top: 20%;
+    margin-bottom: 20%;
+    padding-top: 30%;
+    padding-bottom: 30%;
+}
+
+.salicin-mug-visual-stack {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+
+/* Each visual sits on top of each other */
+.visual {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition: opacity 0.8s ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-left: -10%;
+}
+
+
+/* The active one shows */
+.visual.active {
+    opacity: 1;
+}
+
+
+.visual img {
+    width: 130%;
+    object-fit: contain;
+}
+
+.story-step {
+    min-height: 90vh;
+    padding-top: 25%;
+}
+
+
+.story-step p {
+    font-size: 90%;
+    margin-bottom: 10%;
+    background-color: white;
+    opacity: 0.9;
+    padding: 20%;
+    border-radius: 25px;
+    border: 1px solid grey;
+}
+
+
+.spacer {
+    height: 20vh;
+}
+
+.story-step-hide {
+    font-size: 18px;
+    margin-bottom: 10%;
+    padding: 150%;
+}
+
+.interstitial-text {
+    padding: 10%;
 }

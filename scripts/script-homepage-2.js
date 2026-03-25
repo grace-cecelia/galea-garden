@@ -195,7 +195,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 // Fade-in on scroll
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     const fadeInElements = document.querySelectorAll('.fade-in');
 
     function checkFadeIn() {
@@ -213,3 +213,116 @@ document.addEventListener('DOMContentLoaded', function() {
     window.addEventListener('scroll', checkFadeIn);
     checkFadeIn(); // Check on load
 });
+
+
+
+
+//ROSE PLAQUE OVERLAY
+document.addEventListener('DOMContentLoaded', function () {
+    const rosePlaqueButton = document.getElementById('rosePlaqueButton');
+
+    if (rosePlaqueButton) {
+        rosePlaqueButton.addEventListener('click', function (event) {
+            event.preventDefault();
+
+            // Visual feedback
+            this.style.transform = 'scale(0.95)';
+            setTimeout(() => {
+                this.style.transform = 'scale(1)';
+            }, 100);
+
+            // Show modal with information
+            showModal({
+                title: "Rose",
+                content: "Genus <i>Rosa,</i> Family Rosaceae<br></br>In traditional Persian medicine, rose essential oil was applied to the forehead, temples, and scalp to treat head pain.",
+                image: "../garden-bed-images/plaque-overlay.png"
+            });
+        });
+    }
+
+    function showModal(data) {
+        // Create modal element
+        const modal = document.createElement('div');
+        modal.id = 'plaqueModal';
+        modal.style.cssText = `
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: transparent;
+            z-index: 1000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            animation: fadeIn 0.3s ease;
+            text-align: center;
+            line-height: 5;
+        `;
+
+        modal.innerHTML = `
+            <div style="background: url(${data.image}); background-size: cover; background-repeat: no-repeat; overflow-y: auto; text-align: center; margin-right: 20%; margin-left: 20%; margin-top: 0; margin-bottom: 0;">
+                <h2 style="line-height: 1.5; text-align: center; color: white; font-size: 200%; margin-top: 10%; margin-bottom: 8%;">${data.title}</h2>
+                <p style="padding: 10%; line-height: 1.2; font-size: 18px; color: white; ">${data.content}</p>
+                <button onclick="this.parentElement.parentElement.remove()" style="background: url(../plant-pages-images/back-to-garden.png) no-repeat center center; background-size: cover; border: none; cursor: pointer; font-size: 200%; transition: all 0.3s; width: 200px; height: 50px; margin-top: 10%; margin-bottom: 10%;">&ZeroWidthSpace;</button>
+            </div>
+        `;
+
+
+
+        document.body.appendChild(modal);
+    }
+});
+
+
+
+// ARCTIC WILLOW LIGHTBOX WITH SCROLLYTELLY
+
+// Open lightbox function
+function openLightbox() {
+    const willowLightbox = document.getElementById('willowLightbox');
+    const willowIframe = document.getElementById('willow-lightbox-iframe');
+
+    // Set the iframe source to your separate HTML page
+    willowIframe.src = './pages/arctic-willow.html';
+
+    // Show the lightbox
+    willowLightbox.style.display = 'block';
+
+    // Prevent background scrolling
+    document.body.style.overflow = 'hidden';
+}
+
+// Close lightbox function
+function closeLightbox() {
+    const willowLightbox = document.getElementById('willowLightbox');
+    const willowIframe = document.getElementById('willow-lightbox-iframe');
+
+    // Hide the lightbox
+    willowLightbox.style.display = 'none';
+
+    // Re-enable background scrolling
+    document.body.style.overflow = 'auto';
+
+    // Clear iframe content to prevent loading issues
+    willowIframe.src = '';
+}
+
+// Close lightbox when clicking outside the content
+window.onclick = function (event) {
+    const willowLightbox = document.getElementById('willowLightbox');
+    if (event.target === willowLightbox) {
+        closeLightbox();
+    }
+}
+
+// Close with Escape key
+document.addEventListener('keydown', function (event) {
+    if (event.key === 'Escape') {
+        closeLightbox();
+    }
+});
+
+
+
+
