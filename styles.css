@@ -186,11 +186,6 @@ body {
     z-index: 1;
 }
 
-.headache-person {
-    position: relative;
-    width: 50%;
-    margin-bottom: -40%;
-}
 
 .helmet-container {
     width: 100%;
@@ -320,27 +315,31 @@ body {
 
 .paper-note-container {
     width: 100%;
-    height: 100%;
-    height: auto;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    gap: 5%;
+    height: 0;
+    padding-bottom: 64.6%;
+    /* Aspect ratio 1500/2321 ≈ 0.646 */
     position: relative;
     overflow: visible;
     margin-top: 0;
     z-index: 2;
-    background-image: url('images/note-paper.png');
+    background-image: url('images/white-note-paper.png');
     background-size: cover;
     background-repeat: no-repeat;
+    background-position: center;
     margin-bottom: 20%;
 }
 
 .paper-note-text {
-    padding-left: 12%;
-    padding-right: 12%;
-    padding-top: 15%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 15% 12% 5% 12%;
+    /* Adjust padding as needed */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
 }
 
 .disclaimer-container {
@@ -358,8 +357,9 @@ body {
 }
 
 .disclaimer-container img {
-    width: 70%;
-    margin: -2% -4% -2% -2%;
+    width: 45%;
+    height: auto;
+    margin: 0 10px 0 0;
 }
 
 .headache-categories {
@@ -445,13 +445,13 @@ body {
 
 
 .story-step p {
-    font-size: 90%;
+    font-size: 100%;
     margin-bottom: 10%;
     background-color: white;
     opacity: 0.9;
-    padding: 20%;
-    border-radius: 25px;
-    border: 1px solid grey;
+    padding: 15%;
+    border-radius: 10px;
+    border: 0px solid grey;
 }
 
 
