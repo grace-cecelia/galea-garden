@@ -114,10 +114,12 @@
         </p>
     </div>
 
+    <!--scrollbar still visible for me on firefox-->
     <style>
         ::-webkit-scrollbar {
             height: 0px;
             width: 0px;
+            scrollbar-width: none;
         }
     </style>
 
@@ -132,47 +134,65 @@
         <img class="rose-plaque-transform" src="garden-bed-images/rose-plaque-small.png" alt="rose plaque" />
     </div> -->
 
-<div class="garden-entrance-container">
-    <!-- Background image -->
-    <div class="garden-background"></div>
-    
-    <!-- Positioned images -->
-    <img class="rose-plaque" src="garden-bed-images/rose-plaque.png" alt="rose plaque" />
-</div>
-
-
-
-        <div class="spacer"></div>
-            <div class="spacer"></div>
-                <div class="spacer"></div>
-                    <div class="spacer"></div>
-                        <div class="spacer"></div>
-                            <div class="spacer"></div>
-                                <div class="spacer"></div>
-                                    <div class="spacer"></div>
-
-
-    <!-- garden beds attempt 1
-    <div class="garden-beds-container">
-
-        <div class="garden-beds-left">
-            <div class="garden-bed-image-container">
-                <div class="garden-bed-rose">
-                    <img src="garden-bed-images/flowerbed-1.png" alt="flower bed 1">
-                    <img class="plaque" src="garden-bed-images/rose-plaque.png" alt="rose plaque">
-                    <img class="roses" src="garden-bed-images/flowerbed-roses.png" alt="roses">
-                </div>
-            </div>
+    <!--rose plaque big version
+    <div id="rose-plaque-overlay">
+        <div class="rose-plaque-container">
+            <img src="garden-bed-images/rose-plaque-overlay.png" alt="rose plaque overlay" />
+            <p class="plaque-text">Rose<br></br>
+                Genus <i>Rosa,</i> Family Rosaceae<br></br>
+                In traditional Persian medicine, rose essential oil was applied to the forehead, temples, and scalp to
+                treat
+                head pain.
+            </p>
+            <button class="close-overlay" id="closeRoseOverlay">Close Plaque</button>
         </div>
+    </div> -->
 
-        <div class="garden-beds-right">
-            <div class="garden-bed-image-container">
-                <div class="garden-bed-5">
-                    <img src="garden-bed-images/flowerbed-5.png" alt="flower bed 5">
-                </div>
-            </div>
-        </div>-->
+    <div id="rose-plaque-overlay" onclick="off()">
+        <div id="rose-plaque-text">Rose<br></br>
+            Genus <i>Rosa,</i> Family Rosaceae<br></br>
+            In traditional Persian medicine, rose essential oil was applied to the forehead, temples, and scalp to
+            treat
+            head pain.</div>
+    </div>
 
+
+    <script>
+        function on() {
+            document.getElementById("rose-plaque-overlay").style.display = "block";
+        }
+
+        function off() {
+            document.getElementById("rose-plaque-overlay").style.display = "none";
+        }
+    </script>
+
+    <div id="mobile-overlay">
+        <div class="overlay-message">
+            Best viewed on desktop!
+        </div>
+    </div>
+
+    <!--garden image with clickable elements-->
+    <div class="garden-entrance-container">
+        <img class="garden-background" src="garden-bed-images/garden-background.png" />
+        <div class="clickable-rose-plaque">
+            <button onclick="on()" type="rose-plaque-button" >
+                <img src="garden-bed-images/rose-plaque-small.png" />
+            </button>
+        </div>
+    </div>
+
+
+
+    <div class="spacer"></div>
+    <div class="spacer"></div>
+    <div class="spacer"></div>
+    <div class="spacer"></div>
+    <div class="spacer"></div>
+    <div class="spacer"></div>
+    <div class="spacer"></div>
+    <div class="spacer"></div>
 
     </div>
 
