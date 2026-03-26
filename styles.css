@@ -771,7 +771,7 @@ hover state to indicate plaque is clickable - not working yet
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 90%;
+    width: 70%;
     height: 70%;
     /* adjust this for size of lightbox without affecting bg container */
     background-color: white;
