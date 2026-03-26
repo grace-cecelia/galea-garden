@@ -609,9 +609,9 @@ hover state to indicate plaque is clickable - not working yet
 /* turning image into clickable button - assoc with flower bed 1 */
 .clickable-rose-plaque {
     position: absolute;
-    top: 193%;
-    left: 34%;
-    width: 10%;
+    top: 215%;
+    left: 31%;
+    width: 15%;
     -webkit-filter: drop-shadow(1% 1% 0 rgb(255, 255, 255)) drop-shadow(-5px -5px 0 rgb(255, 255, 255));
     filter: drop-shadow(1% 1% 0 rgb(255, 255, 255)) drop-shadow(-5px -5px 0 rgb(255, 255, 255));
     outline: none;
@@ -625,10 +625,61 @@ hover state to indicate plaque is clickable - not working yet
 }
 
 
+.clickable-feverfew-plaque {
+    position: absolute;
+    top: 230%;
+    left: 58%;
+    width: 100%;
+    -webkit-filter: drop-shadow(1% 1% 0 rgb(255, 255, 255)) drop-shadow(-5px -5px 0 rgb(255, 255, 255));
+    filter: drop-shadow(1% 1% 0 rgb(255, 255, 255)) drop-shadow(-5px -5px 0 rgb(255, 255, 255));
+    outline: none;
+    border: none;
+    z-index: 2;
+    overflow: visible;
+}
+
+.clickable-feverfew-plaque:hover {
+    cursor: pointer;
+}
+
+.clickable-rue-plaque {
+    position: absolute;
+    top: 376%;
+    left: 67%;
+    width: 18%;
+    -webkit-filter: drop-shadow(1% 1% 0 rgb(255, 255, 255)) drop-shadow(-5px -5px 0 rgb(255, 255, 255));
+    filter: drop-shadow(1% 1% 0 rgb(255, 255, 255)) drop-shadow(-5px -5px 0 rgb(255, 255, 255));
+    outline: none;
+    border: none;
+    z-index: 2;
+    overflow: visible;
+}
+
+.clickable-rue-plaque:hover {
+    cursor: pointer;
+}
+
+.clickable-chamomile-plaque {
+    position: absolute;
+    top: 423%;
+    left: 32%;
+    width: 18%;
+    -webkit-filter: drop-shadow(1% 1% 0 rgb(255, 255, 255)) drop-shadow(-5px -5px 0 rgb(255, 255, 255));
+    filter: drop-shadow(1% 1% 0 rgb(255, 255, 255)) drop-shadow(-5px -5px 0 rgb(255, 255, 255));
+    outline: none;
+    border: none;
+    z-index: 2;
+    overflow: visible;
+}
+
+.clickable-chamomile-plaque:hover {
+    cursor: pointer;
+}
+
 /* WillowButton styled as image */
 .willowButton {
     position: absolute;
-    top: 125%;
+    top: 145%;
     left: 55%;
     border: none;
     background: none;
@@ -645,6 +696,57 @@ hover state to indicate plaque is clickable - not working yet
 }
 
 .willowButton img {
+    width: 90%;
+    height: auto;
+    display: block;
+}
+
+/* mintButton styled as image */
+.mintButton {
+    position: absolute;
+    top: 286%;
+    left: -10%;
+    border: none;
+    background: none;
+    transition: transform 0.2s;
+    width: 70%;
+    height: auto;
+    -webkit-filter: drop-shadow(0 0 10px rgb(255, 255, 255)) drop-shadow(-10px 0 10px rgb(255, 255, 255));
+    filter: drop-shadow(10px 0 10px rgb(255, 255, 255)) drop-shadow(-10px 0 10px rgb(255, 255, 255));
+    z-index: 1;
+}
+
+.mintButton:hover {
+    cursor: pointer;
+}
+
+.mintButton img {
+    width: 90%;
+    height: auto;
+    display: block;
+}
+
+
+/* butterflyButton styled as image */
+.butterflyButton {
+    position: absolute;
+    top: 445%;
+    left: 58%;
+    border: none;
+    background: none;
+    transition: transform 0.2s;
+    width: 60%;
+    height: auto;
+    -webkit-filter: drop-shadow(0 0 10px rgb(255, 255, 255)) drop-shadow(-10px 0 10px rgb(255, 255, 255));
+    filter: drop-shadow(10px 0 10px rgb(255, 255, 255)) drop-shadow(-10px 0 10px rgb(255, 255, 255));
+    z-index: 1;
+}
+
+.butterflyButton:hover {
+    cursor: pointer;
+}
+
+.butterflyButton img {
     width: 90%;
     height: auto;
     display: block;
@@ -709,7 +811,6 @@ hover state to indicate plaque is clickable - not working yet
 
 .willow-lightbox-iframe {
     width: 100%;
-    height: calc(100% - 50px);
     border: none;
 }
 
@@ -871,7 +972,7 @@ hover state to indicate plaque is clickable - not working yet
 
 .willow-title-container {
     width: 100vw;
-    height: 100vh;
+    height: 90vh;
     margin: 0;
     padding: 0;
     position: relative;
@@ -884,9 +985,10 @@ hover state to indicate plaque is clickable - not working yet
 .willow-decorative-border {
     position: relative;
     top: 0;
-    left: 0;
-    width: 100%;
+    left: 2%;
+    width: 95%;
     z-index: 1;
+    text-align: center;
 }
 
 .arctic-willow-hero {
@@ -1157,22 +1259,22 @@ hover state to indicate plaque is clickable - not working yet
 
 
 /* willow bark into mug animation */
-/* Make sure the container takes full viewport height */
+/* Make sure the container takes full viewport height
 .bark-scroll-track {
     height: 100vh;
     position: relative;
     overflow: hidden;
     width: 100%;
-}
+} */
 
-/* Stack container */
+/* Stack container
 .bark-stack {
     position: relative;
     height: 100%;
     width: 100%;
 }
 
-/* Individual image layers */
+/* Individual image layers 
 .bark-layer {
     position: absolute;
     top: 0;
@@ -1186,20 +1288,55 @@ hover state to indicate plaque is clickable - not working yet
     justify-content: center;
 }
 
-/* First image visible by default */
+/* First image visible by default 
 .bark-layer.visible {
     opacity: 1;
 }
 
-/* Image styling */
+/* Image styling 
 .bark-layer img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     display: block;
+} */ 
+
+
+.bark-scroll-track {
+    position: relative;
+    height: 220vh;
 }
 
+.bark-stack {
+    position: sticky;
+    top: 50vh;
+    transform: translateY(-50%);
+    width: min(96vw, 1100px);
+    margin: 0 auto;
+    aspect-ratio: 16 / 9;
+}
 
+.bark-layer {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    z-index: 0;
+    transition: opacity 420ms ease;
+}
+
+.bark-layer.visible {
+    opacity: 1;
+}
+
+.bark-layer.front {
+    z-index: 2;
+}
+
+.bark-layer img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
 
 
 
@@ -1369,4 +1506,72 @@ hover state to indicate plaque is clickable - not working yet
     height: 100%;
     object-fit: cover;
     display: block;
+}
+
+
+/* PEPPERMINT SCROLLYTELLY OVERLAY */
+.peppermint-body {
+    overflow-x: hidden;
+}
+
+.peppermint-title-container {
+    width: 100%;
+    display: flex;
+    position: relative;
+}
+
+
+.peppermint-title {
+    position: absolute;
+    top: 0%;
+    left: 50%;
+    text-align: center;
+}
+
+.peppermint-title-container {
+    width: 100vw;
+    height: 90vh;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Background image */
+.peppermint-decorative-border {
+    position: relative;
+    top: 0;
+    left: 2%;
+    width: 95%;
+    z-index: 1;
+    text-align: center;
+}
+
+.peppermint-hero {
+    width: 50%;
+    top: 25%;
+    left: 11%;
+}
+
+.peppermint-title {
+    position: relative;
+    top: 19%;
+    left: 39%;
+    text-align: center;
+    font-size: 250%;
+}
+
+.peppermint-intro-text {
+    position: absolute;
+    top: 32%;
+    left: 58%;
+    padding-right: 20%;
+}
+
+/* All positioned images */
+.peppermint-title-container img {
+    position: absolute;
+    z-index: 1;
+    height: auto;
+    max-width: 100%;
 }

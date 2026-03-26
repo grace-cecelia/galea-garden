@@ -234,7 +234,7 @@ document.addEventListener('DOMContentLoaded', function () {
             // Show modal with information
             showModal({
                 title: "Rose",
-                content: "Genus <i>Rosa,</i> Family Rosaceae<br></br>In traditional Persian medicine, rose essential oil was applied to the forehead, temples, and scalp to treat head pain.",
+                content: "Rose (Damask)<br></br> <i>Rosa x damascena</i><br></br>Rose oil has been used topically in traditional Persian medicine practices for headache relief.",
                 image: "../garden-bed-images/plaque-overlay.png"
             });
         });
@@ -273,6 +273,183 @@ document.addEventListener('DOMContentLoaded', function () {
         document.body.appendChild(modal);
     }
 });
+
+//FEVERFEW PLAQUE OVERLAY
+document.addEventListener('DOMContentLoaded', function () {
+    const feverfewPlaqueButton = document.getElementById('feverfewPlaqueButton');
+
+    if (feverfewPlaqueButton) {
+        feverfewPlaqueButton.addEventListener('click', function (event) {
+            event.preventDefault();
+
+            // Visual feedback
+            this.style.transform = 'scale(0.95)';
+            setTimeout(() => {
+                this.style.transform = 'scale(1)';
+            }, 100);
+
+            // Show modal with information
+            showModal({
+                title: "Feverfew",
+                content: "<i>Tanacetum parthenium</i><br></br>Feverfew has traditionally been used across Britain for migraine relief. Leaves of the plant were consumed directly, brewed into teas, or dried and consumed as powders.",
+                image: "../garden-bed-images/plaque-overlay.png"
+            });
+        });
+    }
+
+    function showModal(data) {
+        // Create modal element
+        const modal = document.createElement('div');
+        modal.id = 'plaqueModal';
+        modal.style.cssText = `
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: transparent;
+            z-index: 1000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            animation: fadeIn 0.3s ease;
+            text-align: center;
+            line-height: 5;
+        `;
+
+        modal.innerHTML = `
+            <div style="background: url(${data.image}); background-size: cover; background-repeat: no-repeat; overflow-y: auto; text-align: center; margin-right: 20%; margin-left: 20%; margin-top: 0; margin-bottom: 0;">
+                <h2 style="line-height: 1.5; text-align: center; color: white; font-size: 200%; margin-top: 10%; margin-bottom: 8%;">${data.title}</h2>
+                <p style="padding: 10%; line-height: 1.2; font-size: 18px; color: white; ">${data.content}</p>
+                <button onclick="this.parentElement.parentElement.remove()" style="background: url(../plant-pages-images/back-to-garden.png) no-repeat center center; background-size: cover; border: none; cursor: pointer; font-size: 200%; transition: all 0.3s; width: 200px; height: 50px; margin-top: 10%; margin-bottom: 10%;">&ZeroWidthSpace;</button>
+            </div>
+        `;
+
+
+
+        document.body.appendChild(modal);
+    }
+});
+
+//RUE PLAQUE OVERLAY
+document.addEventListener('DOMContentLoaded', function () {
+    const ruePlaqueButton = document.getElementById('ruePlaqueButton');
+
+    if (ruePlaqueButton) {
+        ruePlaqueButton.addEventListener('click', function (event) {
+            event.preventDefault();
+
+            // Visual feedback
+            this.style.transform = 'scale(0.95)';
+            setTimeout(() => {
+                this.style.transform = 'scale(1)';
+            }, 100);
+
+            // Show modal with information
+            showModal({
+                title: "Rue",
+                content: "<i>Ruta graveleons</i><br></br>Rue has been used in traditional Chinese medicine and Tzeltal Maya traditional medicine for headache relief, typically through consumption of the leaves directly or as a tea.",
+                image: "../garden-bed-images/plaque-overlay.png"
+            });
+        });
+    }
+
+    function showModal(data) {
+        // Create modal element
+        const modal = document.createElement('div');
+        modal.id = 'plaqueModal';
+        modal.style.cssText = `
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: transparent;
+            z-index: 1000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            animation: fadeIn 0.3s ease;
+            text-align: center;
+            line-height: 5;
+        `;
+
+        modal.innerHTML = `
+            <div style="background: url(${data.image}); background-size: cover; background-repeat: no-repeat; overflow-y: auto; text-align: center; margin-right: 20%; margin-left: 20%; margin-top: 0; margin-bottom: 0;">
+                <h2 style="line-height: 1.5; text-align: center; color: white; font-size: 200%; margin-top: 10%; margin-bottom: 8%;">${data.title}</h2>
+                <p style="padding: 10%; line-height: 1.2; font-size: 18px; color: white; ">${data.content}</p>
+                <button onclick="this.parentElement.parentElement.remove()" style="background: url(../plant-pages-images/back-to-garden.png) no-repeat center center; background-size: cover; border: none; cursor: pointer; font-size: 200%; transition: all 0.3s; width: 200px; height: 50px; margin-top: 10%; margin-bottom: 10%;">&ZeroWidthSpace;</button>
+            </div>
+        `;
+
+
+
+        document.body.appendChild(modal);
+    }
+});
+
+//CHAMOMILE PLAQUE OVERLAY
+document.addEventListener('DOMContentLoaded', function () {
+    const chamomilePlaqueButton = document.getElementById('chamomilePlaqueButton');
+
+    if (chamomilePlaqueButton) {
+        chamomilePlaqueButton.addEventListener('click', function (event) {
+            event.preventDefault();
+
+            // Visual feedback
+            this.style.transform = 'scale(0.95)';
+            setTimeout(() => {
+                this.style.transform = 'scale(1)';
+            }, 100);
+
+            // Show modal with information
+            showModal({
+                title: "Chamomile",
+                content: "<i>Matricaria chammomila</i><br></br>Chamomile oil has been used topically in traditional Persian medicine for the relief of migraine-type headaches.",
+                image: "../garden-bed-images/plaque-overlay.png"
+            });
+        });
+    }
+
+    function showModal(data) {
+        // Create modal element
+        const modal = document.createElement('div');
+        modal.id = 'plaqueModal';
+        modal.style.cssText = `
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: transparent;
+            z-index: 1000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            animation: fadeIn 0.3s ease;
+            text-align: center;
+            line-height: 5;
+        `;
+
+        modal.innerHTML = `
+            <div style="background: url(${data.image}); background-size: cover; background-repeat: no-repeat; overflow-y: auto; text-align: center; margin-right: 20%; margin-left: 20%; margin-top: 0; margin-bottom: 0;">
+                <h2 style="line-height: 1.5; text-align: center; color: white; font-size: 200%; margin-top: 10%; margin-bottom: 8%;">${data.title}</h2>
+                <p style="padding: 10%; line-height: 1.2; font-size: 18px; color: white; ">${data.content}</p>
+                <button onclick="this.parentElement.parentElement.remove()" style="background: url(../plant-pages-images/back-to-garden.png) no-repeat center center; background-size: cover; border: none; cursor: pointer; font-size: 200%; transition: all 0.3s; width: 200px; height: 50px; margin-top: 10%; margin-bottom: 10%;">&ZeroWidthSpace;</button>
+            </div>
+        `;
+
+
+
+        document.body.appendChild(modal);
+    }
+});
+
+console.log("yo")
+
+//willow bark
+
+
 
 
 
@@ -370,58 +547,10 @@ function updateMapState() {
     const nextIndex = progress < 0.5 ? 0 : 1;
     crossfadeTo(nextIndex);
 }
+console.log("hi");
 
 // Initialize once, then keep state in sync with scroll and resize.
 updateMapState();
 window.addEventListener("scroll", updateMapState, { passive: true });
 window.addEventListener("resize", updateMapState);
 
-
-
-//willow bark scroll animation 
-document.addEventListener('DOMContentLoaded', function () {
-    const container = document.getElementById('barkScrollTrack');
-    const layers = document.querySelectorAll('.bark-layer');
-    let currentLayer = 0;
-
-    // Initialize first layer as visible
-    if (layers.length > 0) {
-        layers[0].classList.add('visible');
-    }
-
-    function updateLayers() {
-        const scrollY = window.scrollY;
-        const windowHeight = window.innerHeight;
-        const containerTop = container.getBoundingClientRect().top + window.scrollY;
-        const containerHeight = container.offsetHeight;
-
-        // Calculate which layer should be visible
-        const progress = Math.max(0, Math.min(1, (scrollY - containerTop) / containerHeight));
-        const targetLayer = Math.floor(progress * (layers.length - 1));
-
-        if (targetLayer !== currentLayer) {
-            layers[currentLayer].classList.remove('visible');
-            layers[targetLayer].classList.add('visible');
-            currentLayer = targetLayer;
-        }
-    }
-
-    // Handle scroll events with throttling
-    let ticking = false;
-    function requestTick() {
-        if (!ticking) {
-            requestAnimationFrame(() => {
-                updateLayers();
-                ticking = false;
-            });
-            ticking = true;
-        }
-    }
-
-    // Add event listeners
-    window.addEventListener('scroll', requestTick);
-    window.addEventListener('resize', requestTick);
-
-    // Initial update
-    updateLayers();
-});
