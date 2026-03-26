@@ -1,3 +1,11 @@
+:root {
+    --main-font-colour: #514941;
+    --main-font-family: yrsa, serif;
+    --line-height: 1.4;
+    --background-colour: #ede1d4;
+    --generic-container-padding: 15%;
+}
+
 /* page bg */
 
 /* title page container */
@@ -20,10 +28,11 @@
 }
 
 body {
-    font-family: Arial, sans-serif;
+    font-family: var(--main-font-family);
     background-color: #ede1d4;
-    line-height: 1.6;
+    line-height: var(--line-height);
     height: 100%;
+    font: #514941;
 }
 
 .container {
@@ -730,7 +739,7 @@ hover state to indicate plaque is clickable - not working yet
 /* butterflyButton styled as image */
 .butterflyButton {
     position: absolute;
-    top: 445%;
+    top: 442%;
     left: 58%;
     border: none;
     background: none;
@@ -966,7 +975,7 @@ hover state to indicate plaque is clickable - not working yet
 .willow-title {
     position: absolute;
     top: 0%;
-    left: 50%;
+    left: 48%;
     text-align: center;
 }
 
@@ -1007,7 +1016,7 @@ hover state to indicate plaque is clickable - not working yet
 
 .willow-intro-text {
     position: absolute;
-    top: 32%;
+    top: 29%;
     left: 58%;
     padding-right: 20%;
 }
