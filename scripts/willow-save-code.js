@@ -817,3 +817,50 @@ window.addEventListener('scroll', function() {
         debugLog('Scroll position:', window.pageYOffset);
     }
 });
+
+//willow bark animation
+document.addEventListener('DOMContentLoaded', function () {
+    const container = document.getElementById('barkScrollTrack');
+
+    if (!container) {
+        console.error('Container not found');
+        return;
+    }
+
+    const images = Array.from(container.querySelectorAll('.bark-layer'));
+
+    if (images.length < 2) {
+        console.error('Not enough images for stack');
+        return;
+    }
+
+    // Initialize first image as visible
+    images[0].classList.add('visible');
+
+    let currentImageIndex = 0;
+
+    function updateImage() {
+        const scrollPosition = window.scrollY;
+        const containerRect = container.getBoundingClientRect();
+        const containerTop = containerRect.top + window.scrollY;
+        const containerHeight = containerRect.height;
+
+        // Calculate which image should be visible
+        const progress = Math.max(0, Math.min(1, (scrollPosition - containerTop) / containerHeight));
+        const newIndex = Math.floor(progress * (images.length - 1));
+
+        if (newIndex !== currentImageIndex) {
+            images[currentImageIndex].classList.remove('visible');
+            images[newIndex].classList.add('visible');
+            currentImageIndex = newIndex;
+        }
+    }
+
+    // Handle scroll events
+    window.addEventListener('scroll', updateImage);
+
+    // Initial update
+    updateImage();
+
+    console.log('Image stack initialized with', images.length, 'images');
+});

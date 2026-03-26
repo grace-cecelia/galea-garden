@@ -323,10 +323,11 @@ body {
     margin-top: 0;
     z-index: 2;
     background-image: url('images/white-note-paper.png');
-    background-size: cover;
+    background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
     margin-bottom: 20%;
+    overflow-x: hidden;
 }
 
 .paper-note-text {
@@ -335,8 +336,9 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    padding: 15% 12% 5% 12%;
-    /* Adjust padding as needed */
+    padding-top: 25%;
+    padding-left: 10%;
+    padding-right: 10%;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -935,12 +937,16 @@ hover state to indicate plaque is clickable - not working yet
     text-align: center;
 }
 
-.willow-maps-text {
+.willow-map-text {
     text-align: center;
-    width: 50%;
     display: flex;
-    padding-right: 50%;
     position: absolute;
+    padding-bottom: 0;
+}
+
+.willow-map-text-2 {
+    text-align: center;
+    padding-bottom: 0;
 }
 
 .willow-maps {
@@ -954,6 +960,67 @@ hover state to indicate plaque is clickable - not working yet
 .willow-maps p {
     margin: 10px 0;
 }
+
+/* Shay's edits for scroll map */
+.map-scroll-track {
+    position: relative;
+    height: 220vh;
+}
+
+.map-stack {
+    position: sticky;
+    top: 50vh;
+    transform: translateY(-50%);
+    width: min(96vw, 1100px);
+    margin: 0 auto;
+    aspect-ratio: 16 / 9;
+}
+
+.map-layer {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    z-index: 0;
+    transition: opacity 420ms ease;
+}
+
+.map-layer.visible {
+    opacity: 1;
+}
+
+.map-layer.front {
+    z-index: 2;
+}
+
+.map-layer img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+@media (max-width: 760px) {
+    .map-scroll-track {
+        height: 190vh;
+    }
+
+    .map-stack {
+        width: 100vw;
+    }
+}
+
+.iframe-willow-map {
+    border: none;
+    width: 100%;
+    height: 80vh;
+    overflow: hidden;
+}
+
+
+.iframe-container-willow {
+    overflow: hidden;
+    height: 60%;
+}
+
 
 /* Scroll freezing effect */
 .map-container.scroll-freeze {
@@ -1012,9 +1079,9 @@ hover state to indicate plaque is clickable - not working yet
 
 .person-container {
     display: flex;
-    margin-top: 15%;
     width: 100%;
     margin-bottom: 10%;
+    margin-top: -5%;
 }
 
 .person-container .person-speaking {
@@ -1035,12 +1102,107 @@ hover state to indicate plaque is clickable - not working yet
     width: 100%;
     display: flex;
     columns: 2;
-    margin-top: 15%;
-    height: auto;
 }
 
-/* place styling for willow bark animation here 
-.willow-prep-container .left-visual-column {} */ 
+/* Shay's edits for scroll map */
+/* .bark-scroll-track {
+    position: relative;
+    height: 220vh;
+}
+
+.bark-stack {
+    position: sticky;
+    top: 50vh;
+    transform: translateY(-50%);
+    width: min(96vw, 1100px);
+    margin: 0 auto;
+    aspect-ratio: 16 / 9;
+}
+
+.bark-layer {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    z-index: 0;
+    transition: opacity 420ms ease;
+}
+
+.bark-layer.visible {
+    opacity: 1;
+}
+
+.bark-layer.front {
+    z-index: 2;
+}
+
+.bark-layer img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+} */
+
+
+.iframe-willow-map {
+    border: none;
+    width: 100%;
+    height: 80vh;
+    overflow: hidden;
+}
+
+
+.iframe-container-willow {
+    overflow: hidden;
+    height: 60%;
+}
+
+
+/* willow bark into mug animation */
+/* Make sure the container takes full viewport height */
+.bark-scroll-track {
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+}
+
+/* Stack container */
+.bark-stack {
+    position: relative;
+    height: 100%;
+    width: 100%;
+}
+
+/* Individual image layers */
+.bark-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* First image visible by default */
+.bark-layer.visible {
+    opacity: 1;
+}
+
+/* Image styling */
+.bark-layer img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+
+
+
+
 
 .willow-prep-container .right-words-column {
     padding-right: 10%;
@@ -1164,4 +1326,47 @@ hover state to indicate plaque is clickable - not working yet
 
 .interstitial-text {
     padding: 10%;
+}
+
+/* new approach to willow bark image stack */
+/* Essential styles for image stack */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.bark-scroll-track {
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+}
+
+.bark-stack {
+    position: relative;
+    height: 100%;
+    width: 100%;
+}
+
+.bark-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.bark-layer.visible {
+    opacity: 1;
+    z-index: 10;
+}
+
+.bark-layer img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
 }

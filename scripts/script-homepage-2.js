@@ -326,3 +326,102 @@ document.addEventListener('keydown', function (event) {
 
 
 
+//scroll to change map 
+const track = document.getElementById("mapScrollTrack");
+const layers = Array.from(document.querySelectorAll(".map-layer"));
+let currentIndex = 0; // Initialize the current index for the layers.
+
+function crossfadeTo(nextIndex) {
+    if (nextIndex === currentIndex) {
+        return;
+    }
+
+    // Show and foreground the incoming layer first.
+    layers.forEach((layer, index) => {
+        if (index === nextIndex) {
+            layer.classList.add("visible", "front");
+        } else {
+            layer.classList.remove("front");
+        }
+    });
+
+    // On the next frame, fade out non-active layers so there is never a blank frame.
+    requestAnimationFrame(() => {
+        layers.forEach((layer, index) => {
+            if (index !== nextIndex) {
+                layer.classList.remove("visible");
+            }
+        });
+    });
+
+    currentIndex = nextIndex;
+}
+
+function updateMapState() {
+    const rect = track.getBoundingClientRect();
+    const totalScrollable = rect.height - window.innerHeight;
+
+    if (totalScrollable <= 0) {
+        return;
+    }
+
+    // Normalize this section's scroll position to 0..1 and switch at the midpoint.
+    const progress = Math.min(1, Math.max(0, -rect.top / totalScrollable));
+    const nextIndex = progress < 0.5 ? 0 : 1;
+    crossfadeTo(nextIndex);
+}
+
+// Initialize once, then keep state in sync with scroll and resize.
+updateMapState();
+window.addEventListener("scroll", updateMapState, { passive: true });
+window.addEventListener("resize", updateMapState);
+
+
+
+//willow bark scroll animation 
+document.addEventListener('DOMContentLoaded', function () {
+    const container = document.getElementById('barkScrollTrack');
+    const layers = document.querySelectorAll('.bark-layer');
+    let currentLayer = 0;
+
+    // Initialize first layer as visible
+    if (layers.length > 0) {
+        layers[0].classList.add('visible');
+    }
+
+    function updateLayers() {
+        const scrollY = window.scrollY;
+        const windowHeight = window.innerHeight;
+        const containerTop = container.getBoundingClientRect().top + window.scrollY;
+        const containerHeight = container.offsetHeight;
+
+        // Calculate which layer should be visible
+        const progress = Math.max(0, Math.min(1, (scrollY - containerTop) / containerHeight));
+        const targetLayer = Math.floor(progress * (layers.length - 1));
+
+        if (targetLayer !== currentLayer) {
+            layers[currentLayer].classList.remove('visible');
+            layers[targetLayer].classList.add('visible');
+            currentLayer = targetLayer;
+        }
+    }
+
+    // Handle scroll events with throttling
+    let ticking = false;
+    function requestTick() {
+        if (!ticking) {
+            requestAnimationFrame(() => {
+                updateLayers();
+                ticking = false;
+            });
+            ticking = true;
+        }
+    }
+
+    // Add event listeners
+    window.addEventListener('scroll', requestTick);
+    window.addEventListener('resize', requestTick);
+
+    // Initial update
+    updateLayers();
+});
